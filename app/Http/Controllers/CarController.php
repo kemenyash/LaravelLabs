@@ -35,9 +35,6 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        $input = $request->all();
-        $input['code'] = Car::count() + 1;
-
         $validatedData = $request->validate([
             'owner' => 'required|string|max:40',
             'brand' => 'required|string|max:40',
@@ -52,9 +49,9 @@ class CarController extends Controller
         ], 201);
     }
 
-    public function update(Request $request, $code)
+    public function update(Request $request, $id)
     {
-        $car = Car::find($code);
+        $car = Car::find($id);
 
         if (!$car) {
             return response()->json([

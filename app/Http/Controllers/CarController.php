@@ -46,6 +46,7 @@ class CarController extends Controller
         ]);
 
         
+        $validatedData['creator_user_id'] = auth()->id();
         $validatedData['owner'] = strip_tags($validatedData['owner']);
         $validatedData['brand'] = strip_tags($validatedData['brand']);
         $validatedData['license_plate'] = strip_tags($validatedData['license_plate']);

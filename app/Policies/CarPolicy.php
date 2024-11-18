@@ -22,7 +22,7 @@ class CarPolicy
      */
     public function create(User $user): bool
     {
-        return true;
+        return $user->role === 'Editor' || $user->id === $car->creator_user_id;
     }
 
     /**
